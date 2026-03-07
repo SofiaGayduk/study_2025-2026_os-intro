@@ -1,37 +1,31 @@
----
-## Author
-author:
-  name: Дмитрий Сергеевич Кулябов
-  degrees: DSc
-  orcid: 0000-0002-0877-7063
-  email: kulyabov-ds@rudn.ru
-  affiliation:
-    - name: Российский университет дружбы народов
-      country: Российская Федерация
-      postal-code: 117198
-      city: Москва
-      address: ул. Миклухо-Маклая, д. 6
 ## Title
-title: Структура научной презентации
-subtitle: Простейший вариант
+---
+title: "laboratory work №1"
+subtitle: "Installation and configuration of the operating system on a virtual machine"
+author: "Gayduk Sofia Sergeevna"
+date: "2026-03-07"
+lang: ru-RU
+format:
+  revealjs:
+    theme: blood
+    transition: slide
+    slide-number: true
 license: CC BY
-date: today
-date-format: "YYYY-MM-DD" # Example: 2025-09-06
+
 ---
 
-# Информация
+# information
 
-## Докладчик
+## Reporter
 
 :::::::::::::: {.columns align=center}
 ::: {.column width="70%"}
 
-  * Кулябов Дмитрий Сергеевич
-  * д.ф.-м.н., профессор
-  * профессор кафедры теории вероятностей и кибербезопасности
-  * Российский университет дружбы народов им. П. Лумумбы
-  * [kulyabov-ds@rudn.ru](mailto:kulyabov-ds@rudn.ru)
-  * <https://yamadharma.github.io/ru/>
+  * Gayduk Sofia 
+  * student
+  * Peoples' Friendship University of Russia named after Patrice Lumumba
+  * [1032253645@rudn.ru](mailto:1032253645@rudn.ru)
+  * <https://github.com/SofiaGayduk>
 
 :::
 ::: {.column width="30%"}
@@ -41,27 +35,27 @@ date-format: "YYYY-MM-DD" # Example: 2025-09-06
 :::
 ::::::::::::::
 
-# Вводная часть
+# Water part
 
-## Актуальность
+## Relevance
 
 - Важно донести результаты своих исследований до окружающих
 - Научная презентация --- рабочий инструмент исследователя
 - Необходимо создавать презентацию быстро
 - Желательна минимизация усилий для создания презентации
 
-## Объект и предмет исследования
+## Objects of study
 
 - Презентация как текст
 - Программное обеспечение для создания презентаций
 - Входные и выходные форматы презентаций
 
-## Цели и задачи
+## Goals and objectives
 
 - Создать шаблон презентации в Markdown
 - Описать алгоритм создания выходных форматов презентаций
 
-## Материалы и методы
+## Materials and methods
 
 - Процессор `pandoc` для входного формата Markdown
 - Результирующие форматы
@@ -69,7 +63,7 @@ date-format: "YYYY-MM-DD" # Example: 2025-09-06
 	- `html`
 - Автоматизация процесса создания: `Makefile`
 
-# Создание презентации
+# Creating presentations
 
 ## Процессор `pandoc`
 

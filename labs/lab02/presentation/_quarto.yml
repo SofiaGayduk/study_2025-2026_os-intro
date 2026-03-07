@@ -10,8 +10,9 @@ crossref:
   lof-title: Список иллюстраций
   lot-title: Список таблиц
   lol-title: Листинги
-format: # Formats
-  beamer: # Pdf output format
+format:
+  beamer:
+    latex-engine: xelatex
     toc: true
     toc-title: Содержание
     number-sections: false
@@ -24,11 +25,17 @@ format: # Formats
     navigation: horizontal
     csquotes: true
     indent: true
+    keep-tex: false
     include-in-header:
       - file: _resources/tex/beamer.tex
-    babel-lang: russian
-    babel-otherlangs: english
-  revealjs: # Html output
+      - text: |
+          \makeatletter
+          \@namedef{ver@babel.sty}{}
+          \makeatother
+          \usepackage{polyglossia}
+          \setdefaultlanguage{russian}
+          \setotherlanguage{english}
+  revealjs:
     transition: slide
     margin: 0.2
     smaller: true
