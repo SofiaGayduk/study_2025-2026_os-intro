@@ -1,3 +1,4 @@
+pdf-engine: xelatex
 project:
   title: "presentation"
   output-dir: "_output"
