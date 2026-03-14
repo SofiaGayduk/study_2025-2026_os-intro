@@ -1,22 +1,28 @@
 ---
 ## Author
 author:
-  name: Дмитрий Сергеевич Кулябов
+  name: Гайдук Софья Сергеевна
   degrees: DSc
   orcid: 0000-0002-0877-7063
-  email: kulyabov-ds@rudn.ru
+  email: 1032253645@rudn.ru
   affiliation:
     - name: Российский университет дружбы народов
       country: Российская Федерация
       postal-code: 117198
       city: Москва
       address: ул. Миклухо-Маклая, д. 6
+---
 ## Title
-title: Структура научной презентации
-subtitle: Простейший вариант
-license: CC BY
-date: today
-date-format: "YYYY-MM-DD" # Example: 2025-09-06
+---
+title: ""
+subtitle: "Простейший вариант"
+author: "Дмитрий Сергеевич Кулябов, DSc 🎓"
+institute: "Российский университет дружбы народов"
+date: "2026-03-14"
+format: 
+  revealjs: 
+    theme: solarized
+    slide-number: true
 ---
 
 # Информация

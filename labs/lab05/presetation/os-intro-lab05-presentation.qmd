@@ -1,54 +1,12 @@
----
-## Author
-author:
-  name: Гайдук Софья Сергеевна
-  degrees: DSc
-  orcid: 0000-0002-0877-7063
-  email: 1032253645@rudn.ru
-  affiliation:
-    - name: Российский университет дружбы народов
-      country: Российская Федерация
-      postal-code: 117198
-      city: Москва
-      address: ул. Миклухо-Маклая, д. 6
-
-## Title
-title: "Лабораторная работа № 5"
-subtitle: "Отчет"
-license: "CC BY"
----
-
-# Цель работы
-
-Установка и настройка менеджеров паролей pass. Управление файлами конфигурации.
-
-# Выполнение лабораторной работы
-
-Установка pass ([рис. @fig-001]).
-
-![image1](image/image1.jpg){#fig-001 width=70%}
-
-Установка gopass ([рис. @fig-002]).
-
-![image2](image/image2.jpg){#fig-002 width=70%}
-
-Просмотр списка ключей ([рис. @fig-003]).
+!(image/image2.jpg){#fig-002 width=70%}
 
 ![image3](image/image3.jpg){#fig-003 width=70%}
 
-Инициализация хранилища ([рис. @fig-004]).
-
 ![image4](image/image4.jpg){#fig-004 width=70%}
-
-Создадим структуру git ([рис. @fig-005]).
 
 ![image5](image/image5.jpg){#fig-005 width=70%}
 
-Создадим репозиторий ([рис. @fig-006]).
-
 ![image6](image/image6.jpg){#fig-006 width=70%}
-
-Зададим адрес репозитория на хостинге ([рис. @fig-007]).
 
 ![image7](image/image7.jpg){#fig-007 width=70%}
 

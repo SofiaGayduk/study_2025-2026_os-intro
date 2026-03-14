@@ -6,9 +6,12 @@
   "repository": "git@github.com:SofiaGayduk/study_2025-2026_os-intro.git",
   "author": "SofiaGayduk <gayduksofi@yandex.ru>",
   "license": "CC-BY-4.0",
-    "config": {
-	"commitizen": {
-	    "path": "cz-customizable"
-	}
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
     }
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.3.0"
+  }
 }
