@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "os-intro",
   "version": "1.0.0",
   "description": "Операционные системы",
@@ -14,4 +15,18 @@
   "devDependencies": {
     "@marp-team/marp-cli": "^4.3.0"
   }
+=======
+  "name": "course-directory-student-template",
+  "version": "1.4.7",
+  "description": "Course Catalog Template for Students",
+  "main": "index.js",
+  "repository": "git@github.com:yamadharma/course-directory-student-template.git",
+  "author": "Dmitry S. Kulyabov <yamadharma@gmail.com>",
+  "license": "CC-BY-4.0",
+    "config": {
+	"commitizen": {
+	    "path": "cz-customizable"
+	}
+    }
+>>>>>>> d37e88c0340f27f5bb0d8926d5a751f3fff614c0
 }
