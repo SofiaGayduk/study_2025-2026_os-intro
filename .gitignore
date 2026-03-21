@@ -365,3 +365,5 @@ plugins
 .config/
 vm/
 *.deb
+*.deb
+*.jar
