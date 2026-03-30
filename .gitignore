@@ -368,3 +368,5 @@ vm/
 *.deb
 *.jar
 *.deb
+.bfg-report/
+project-personal/
