@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 pdf-engine: xelatex
-=======
->>>>>>> 1ac78952beb1391e93796c036ca6ee0887c42c6c
 project:
   title: "presentation"
   output-dir: "_output"
@@ -9,11 +6,7 @@ project:
 standalone: true
 self-contained: true
 slide-level: 2
-<<<<<<< HEAD
 #lang: ru-RU
-=======
-lang: ru-RU
->>>>>>> 1ac78952beb1391e93796c036ca6ee0887c42c6c
 crossref:
   lof-title: Список иллюстраций
   lot-title: Список таблиц
@@ -34,13 +27,8 @@ format: # Formats
     indent: true
     include-in-header:
       - file: _resources/tex/beamer.tex
-<<<<<<< HEAD
     #babel-lang: russian
     #babel-otherlangs: english
-=======
-    babel-lang: russian
-    babel-otherlangs: english
->>>>>>> 1ac78952beb1391e93796c036ca6ee0887c42c6c
   revealjs: # Html output
     transition: slide
     margin: 0.2
