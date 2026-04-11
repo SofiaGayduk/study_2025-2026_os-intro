@@ -4,3 +4,10 @@
 bfg-report/
 *.deb
 bfg-report/
+*.deb
+*.iso
+*.zip
+*.tar.gz
+*.7z
+bfg-report/
+bfg.jar
