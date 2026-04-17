@@ -370,3 +370,4 @@ vm/
 *.deb
 .bfg-report/
 project-personal/
+project-personal/stage03/hugo/

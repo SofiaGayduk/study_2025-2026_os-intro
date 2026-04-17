@@ -14,22 +14,23 @@ affiliation:
     country: Российская Федерация
     postal-code: 117198
     city: Москва
-    address: ул. Миклухо-Маклая, д. 6
----  
---- 
+    address: ул. Миклухо-Маклая, д. 6  
+---
 ## Title
+---
 title: "«Сравнительный анализ сетевых возможностей Windows и Linux»"
 subtitle: "Презентация"
 author: "Гайдук Софья Сергеевна"
-date: "2026-04-15"
-format: 
-  revealjs: 
-    theme: solarized
+date: "2026-03-30"
+format:
+  beamer:
+    theme: "Madrid"
+    colortheme: "dove"
     slide-number: true
---- 
-### Информация
+---
+# Информация
 
-### Докладчик
+## Докладчик
 
 :::::::::::::: {.columns align=center}
 ::: {.column width="70%"}
@@ -76,9 +77,7 @@ format:
 5. Сравнить поддержку контейнеризации и виртуальных сетей.  
 6. Сформулировать рекомендации по выбору ОС в зависимости от задачи.
 
-# 
-
-### Материалы, методы и инструменты исследования, теоретическая база
+## Материалы, методы и инструменты исследования, теоретическая база
 
 **Теоретическая база:** Стандарты RFC (TCP/IP), документация Microsoft (Windows Filtering Platform, NDIS), документация Linux (man pages, Kernel Networking, Netfilter, eBPF), сравнительные обзоры (SPEC, Phoronix).
 
@@ -90,15 +89,13 @@ format:
 - Эмпирический (замеры iperf3, netperf, ping, traceroute).  
 - Сравнительный анализ (функции, инструменты, сложность настройки).  
 - Анализ документации и системных вызовов.  
-- Моделирование сетевых сценариев (NAT, bridging, bonding).
+- Моделирование сетевых сценариев (NAT, bridging, bonding) [6].
 
 **Инструменты:** 
 
 iperf3 (ntttcp), nload, tcpdump, Wireshark, ethtool, Get-NetAdapter, netsh, nettrace, PerfView, bpftrace, ss, netstat. 
 
-# 
-
-### Содержание исследования
+## Содержание исследования
 
 **Предлагаемое решение задач исследования с обоснованием (Windows/Linux (Fedora)):**
 
@@ -113,27 +110,23 @@ iperf3 (ntttcp), nload, tcpdump, Wireshark, ethtool, Get-NetAdapter, netsh, nett
 - Развёртывание стендов, базовая настройка сети.
 - Замеры пропускной способности (TCP/UDP, 1–10GbE) в разных режимах: без фильтрации, с NAT, с IPSec.
 - Настройка брандмауэров (nftables на Fedora vs Windows Defender Firewall) — 100 правил, замер latency.
-- Тест перегрузки: параллельные соединения (10k–100k). Linux справился лучше благодаря алгоритмам управления очередями (fq_codel, BBR).
+- Тест перегрузки: параллельные соединения (10k–100k). Linux справился лучше благодаря алгоритмам управления очередями (fq_codel, BBR) [4].
 - Анализ утилит диагностики: простота и глубина информации.
 - Реализация GRE/VXLAN туннелей (Linux нативен, Windows — через сторонний драйвер или Hyper‑V).
 
-# 
-
-#### Анализ и практическая значимость достигнутых результатов
+## Анализ и практическая значимость достигнутых результатов
 
 | Параметр | Windows | Linux (Fedora) |
 |---------|---------|-------|
-| Гибкость настройки TCP/IP | Средняя (реестр / WMI) | Высокая (sysctl) |
+| Гибкость настройки TCP/IP | Средняя (реестр / WMI) [3][5] | Высокая (sysctl) [2] |
 | Производительность RAW‑сокетов | Низкая (ограничения) | Высокая (PACKET_MMAP, AF_XDP) |
-| Брандмауэр (сложные сценарии) | Сложно (WFP) | Гибко (nftables) |
-| Диагностика сети | Удобно для AD | Максимально детально (eBPF) |
+| Брандмауэр (сложные сценарии) | Сложно (WFP) [1] | Гибко (nftables) [2] |
+| Диагностика сети | Удобно для AD | Максимально детально (eBPF) [2] |
 | Поддержка контейнерной сети | Базовая (NAT, l2bridge) | Полная (Overlay, Macvlan, Podman) |
 | Встроенная маршрутизация | RRAS — ограниченная | Промышленная (FRRouting) |
 | Простота для малого офиса (LAN) | Высокая (мастер, общие ресурсы) | Средняя (CLI, Samba, Cockpit) |
 
-# 
-
-### Общее заключение и выводы  
+## Общее заключение и выводы  
 
 1. Linux (Fedora) превосходит Windows в производительности сетевого стека при высоких нагрузках, предлагает полный контроль, открытые инструменты (eBPF, tc, nftables), идеально подходит для инфраструктурных сетевых устройств.
 2. Windows выигрывает в корпоративной среде с Active Directory: простота настройки общих ресурсов, встроенная система политик безопасности, удобный GUI для базовых операций.
@@ -144,12 +137,7 @@ iperf3 (ntttcp), nload, tcpdump, Wireshark, ethtool, Get-NetAdapter, netsh, nett
 
 Таким образом, гипотеза подтвердилась: Linux — для сетевой инженерии и производительности, Windows — для управляемости и простоты в стандартных офисных сетях.
 
-# 
-
-#### Список литературы{.unnumbered}
-
-:::::::::::::: {.columns align=center}
-::: {.column width="120%"}
+## Список литературы{.unnumbered}
 
 - Microsoft Corporation (2023). *Description of Windows TCP features*. Microsoft Learn. URL: https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/description-tcp-features 
 
@@ -159,12 +147,31 @@ iperf3 (ntttcp), nload, tcpdump, Wireshark, ethtool, Get-NetAdapter, netsh, nett
 
 - OpenBenchmarking.org (2024). *iPerf 3.14 Benchmark Results*. URL: https://mail.openbenchmarking.org/result/2406240-K635-MERGENE99 
 
+## Список литературы{.unnumbered}
+
 - Microsoft Corporation (2018). *MSFT_NetTCPSetting class*. GitHub /MicrosoftDocs. URL: https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/FWP/wmi/nettcpipprov/msft-nettcpsetting.md 
 
 - The Linux Kernel Community (2020). *Linux Ethernet Bonding Driver HOWTO*. The Linux Kernel Archives. URL: https://www.kernel.org/doc/html/v5.9/networking/team.html 
 
 - Материалы к лекции №6. RUDN. https://esystem.rudn.ru/mod/folder/view.php?id=1358508
 
-:::
+## Список литературы{.unnumbered}
+
+- Microsoft Corporation (2023). *Description of Windows TCP features*. Microsoft Learn. URL: https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/description-tcp-features 
+
+- The Linux Kernel Community (2024). *Linux Kernel Networking Documentation*. The Linux Kernel Archives. URL: https://www.kernel.org/doc/html/v6.7/networking/index.html 
+
+- Microsoft Corporation (2023). *Описание функций Windows TCP*. Microsoft Learn. URL: https://learn.microsoft.com/ru-ru/troubleshoot/windows-server/networking/description-tcp-features 
+
+- OpenBenchmarking.org (2024). *iPerf 3.14 Benchmark Results*. URL: https://mail.openbenchmarking.org/result/2406240-K635-MERGENE99 
+
+## Список литературы{.unnumbered}
+
+- Microsoft Corporation (2018). *MSFT_NetTCPSetting class*. GitHub /MicrosoftDocs. URL: https://github.com/MicrosoftDocs/win32/blob/docs/desktop-src/FWP/wmi/nettcpipprov/msft-nettcpsetting.md 
+
+- The Linux Kernel Community (2020). *Linux Ethernet Bonding Driver HOWTO*. The Linux Kernel Archives. URL: https://www.kernel.org/doc/html/v5.9/networking/team.html 
+
+- Материалы к лекции №6. RUDN. https://esystem.rudn.ru/mod/folder/view.php?id=1358508
+
 ::: {#refs}
 :::
