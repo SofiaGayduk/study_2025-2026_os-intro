@@ -1,0 +1,46 @@
+---
+## Author
+author:
+  name: Гайдук Софья Сергеевна
+  degrees: DSc
+  orcid: 0000-0002-0877-7063
+  email: 1032253645@rudn.ru
+  affiliation:
+    - name: Российский университет дружбы народов
+      country: Российская Федерация
+      postal-code: 117198
+      city: Москва
+      address: ул. Миклухо-Маклая, д. 6
+---
+## Title
+---
+title: "Лабораторная работа № 10"
+subtitle: "Презентация"
+author: "Гайдук Софья Сергеевна"
+date: "2026-04-11"
+format:
+  beamer:
+    theme: "Madrid"
+    colortheme: "dove"
+    slide-number: true
+---
+# Информация
+
+## Докладчик
+
+:::::::::::::: {.columns align=center}
+::: {.column width="70%"}
+
+  * Гайдук Софья Сергеевна
+  * студент
+  * Российский университет дружбы народов им. П. Лумумбы
+  * [1032253645@rudn.ru](mailto:1032253645@rudn.ru)
+  * <https://github.com/SofiaGayduk/study_2025-2026_os-intro>
+
+:::
+::: {.column width="30%"}
+
+:::
+::::::::::::::
+
+
