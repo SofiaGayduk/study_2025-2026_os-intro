@@ -1,0 +1,587 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+  aspectratio=169,
+  russian,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolshorizontal
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{section title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{subsection title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\usetheme[]{metropolis}
+\usefonttheme{serif} % use mainfont rather than sansfont for slide text
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+    \setmainfont[Ligatures=TeX]{PT Serif}
+    \setsansfont[Ligatures=TeX,Scale=MatchLowercase]{PT Sans}
+    \setmonofont[Scale=MatchLowercase,Scale=0.9]{PT Mono}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\IfFileExists{plex-otf.sty}{
+  %% Full TeXlive
+  % \usepackage[%
+  %   % math,
+  %   RM={Scale=0.94},SS={Scale=0.94},SScon={Scale=0.94},TT={Scale=MatchLowercase,FakeStretch=0.9},DefaultFeatures={Ligatures=Common}
+  % ]{plex-otf}
+}{
+  %% TinyTeX
+  \usepackage{libertine}
+}
+
+%%% Load theme
+% https://deic.uab.cat/~iblanes/beamer_gallery/
+\IfFileExists{beamerthemegotham.sty}{
+  %% Full TeXlive
+  \usetheme{gotham}
+  \gothamset{
+    numbering=totalpagenumber,
+    parttocframe default=off,
+    sectiontocframe default=off,
+    subsectiontocframe default=off,
+  }
+}{
+  %% TinyTeX
+  \usetheme{Madrid}
+}
+\makeatletter
+\@namedef{ver@babel.sty}{}
+\makeatother
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+\metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}
+\makeatletter
+\beamer@ignorenonframefalse
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Содержание}
+\else
+  \newcommand\contentsname{Содержание}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Список иллюстраций}
+\else
+  \newcommand\listfigurename{Список иллюстраций}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Список таблиц}
+\else
+  \newcommand\listtablename{Список таблиц}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Рисунок}
+\else
+  \newcommand\figurename{Рисунок}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Таблица}
+\else
+  \newcommand\tablename{Таблица}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Список}
+\newcommand*\listoflistings{\listof{codelisting}{Листинги}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{russian}
+\ifPDFTeX
+\else
+\babelfont{rm}[Ligatures=TeX]{PT Serif}
+\fi
+\babelprovide[import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\usepackage{csquotes}
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Лабораторная работа №2},
+  pdfauthor={Гайдук Софья Сергеевна},
+  pdflang={ru-RU},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Лабораторная работа №2}
+\subtitle{Презентация}
+\author{Гайдук Софья Сергеевна}
+\date{Invalid Date}
+\institute{Российский университет дружбы народов, Москва, Россия}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\section{Информация}\label{ux438ux43dux444ux43eux440ux43cux430ux446ux438ux44f}
+
+\begin{frame}{Докладчик}
+\phantomsection\label{ux434ux43eux43aux43bux430ux434ux447ux438ux43a}
+\begin{columns}[c]
+\begin{column}{0.7\linewidth}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Гайдук Софья Сергеевна
+\item
+  Студент
+\item
+  Российский университет дружбы народов
+\item
+  \href{mailto:1032253645@pfur.ru}{\nolinkurl{1032253645@pfur.ru}}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.3\linewidth}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Цель}
+\phantomsection\label{ux446ux435ux43bux44c}
+Изучить идеологию и применение средств контроля версий. Освоить умения
+по работе с git
+\end{frame}
+
+\begin{frame}{Задачи}
+\phantomsection\label{ux437ux430ux434ux430ux447ux438}
+Создать базовую конфигурацию для работы с git. Создать ключ SSH. Создать
+ключ PGP. Настроить подписи git. Зарегистрироваться на Github. Создать
+локальный каталог для выполнения заданий по предмету.
+\end{frame}
+
+\begin{frame}{Установка git и Установка gh}
+\phantomsection\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-git-ux438-ux443ux441ux442ux430ux43dux43eux432ux43aux430-gh}
+Для начала установим git и gh. В моём случае они уже установлены,
+посмотрим версию
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image1.jpg}}
+
+}
+
+\caption{Установка git и gh}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Базовая настройка git}
+\phantomsection\label{ux431ux430ux437ux43eux432ux430ux44f-ux43dux430ux441ux442ux440ux43eux439ux43aux430-git}
+Зададим имя для владельца репозитория.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image2.jpg}}
+
+}
+
+\caption{Указание имени}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Базовая настройка git}
+\phantomsection\label{ux431ux430ux437ux43eux432ux430ux44f-ux43dux430ux441ux442ux440ux43eux439ux43aux430-git-1}
+Зададим почту, на которую зарегистрирован аккаунт на github
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image2.jpg}}
+
+}
+
+\caption{Указание почты}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Базовая настройка git}
+\phantomsection\label{ux431ux430ux437ux43eux432ux430ux44f-ux43dux430ux441ux442ux440ux43eux439ux43aux430-git-2}
+Настроим кодировку utf8 в выводе сообщений git
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image2.jpg}}
+
+}
+
+\caption{Настройка кодировки utf8}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Базовая настройка git}
+\phantomsection\label{ux431ux430ux437ux43eux432ux430ux44f-ux43dux430ux441ux442ux440ux43eux439ux43aux430-git-3}
+Зададим имя начальной ветки, настроим параметры autocrlf и safecrlf
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image2.png}}
+
+}
+
+\caption{Настройка git}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Создание ключа ssh}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux43aux43bux44eux447ux430-ssh}
+Создадим ключ RSA размером 4096 бит
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\linewidth,height=0.6\textheight,keepaspectratio]{image/image3.png}
+
+}
+
+\caption{Создание ключа RSA}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Создание ключа ssh}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux43aux43bux44eux447ux430-ssh-1}
+Теперь создадим ключ по алгоритму ed22519
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\linewidth,height=0.6\textheight,keepaspectratio]{image/image4.png}
+
+}
+
+\caption{Создание ключа ed22519}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Создание ключа pgp}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux43aux43bux44eux447ux430-pgp}
+Теперь создадим ключ gpg. Выбираем из предложенных вариантов первый тип
+(RSA and RSA), размер ключа задаём 4096 бит и делаем срок действия ключа
+неограниченным
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\linewidth,height=0.6\textheight,keepaspectratio]{image/image5.png}
+
+}
+
+\caption{создание ключа pgp (1)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Создание ключа pgp}
+\phantomsection\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux43aux43bux44eux447ux430-pgp-1}
+Вводим имя и адрес электронной почты.
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\linewidth,height=0.6\textheight,keepaspectratio]{image/image6.png}
+
+}
+
+\caption{Создание ключа pgp (2)}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Добавление PGP ключа в GitHub}
+\phantomsection\label{ux434ux43eux431ux430ux432ux43bux435ux43dux438ux435-pgp-ux43aux43bux44eux447ux430-ux432-github}
+Добавляем PGP ключа в GitHub
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\linewidth,height=0.6\textheight,keepaspectratio]{image/image10.png}
+
+}
+
+\caption{добавление pgp ключей в Github}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Настройка автоматических подписей коммитов git}
+\phantomsection\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-ux430ux432ux442ux43eux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43fux43eux434ux43fux438ux441ux435ux439-ux43aux43eux43cux43cux438ux442ux43eux432-git}
+Теперь производим настройку автоматических подписей
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image11.png}}
+
+}
+
+\caption{Настройка автоматических подписей коммитов git}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Настройка автоматических подписей коммитов git}
+\phantomsection\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-ux430ux432ux442ux43eux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43fux43eux434ux43fux438ux441ux435ux439-ux43aux43eux43cux43cux438ux442ux43eux432-git-1}
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image12.png}}
+
+}
+
+\caption{Настройка автоматических подписей коммитов git}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Настройка автоматических подписей коммитов git}
+\phantomsection\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-ux430ux432ux442ux43eux43cux430ux442ux438ux447ux435ux441ux43aux438ux445-ux43fux43eux434ux43fux438ux441ux435ux439-ux43aux43eux43cux43cux438ux442ux43eux432-git-2}
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image13.png}}
+
+}
+
+\caption{Настройка автоматических подписей коммитов git}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Настройка gh}
+\phantomsection\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-gh}
+Нам нужно авторизоваться в github с помощью gh. Мы выбираем сайт для
+авторизации (GitHub.com), после выбираем предпочитаемый протокол (SSH),
+публичный SSH ключ (id\_rsa.pub), и имя для ключа (Sway). В качестве
+способа авторизации выбираем браузер
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\linewidth,height=0.45\textheight,keepaspectratio]{image/image14.png}
+
+}
+
+\caption{Авторизация в gh}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Сознание репозитория курса на основе шаблона}
+\phantomsection\label{ux441ux43eux437ux43dux430ux43dux438ux435-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux44f-ux43aux443ux440ux441ux430-ux43dux430-ux43eux441ux43dux43eux432ux435-ux448ux430ux431ux43bux43eux43dux430}
+Теперь создаём рабочую директорию курса и переходим в неё
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image16.png}}
+
+}
+
+\caption{Создание рабочей директории и переход в неё}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Сознание репозитория курса на основе шаблона}
+\phantomsection\label{ux441ux43eux437ux43dux430ux43dux438ux435-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux44f-ux43aux443ux440ux441ux430-ux43dux430-ux43eux441ux43dux43eux432ux435-ux448ux430ux431ux43bux43eux43dux430-1}
+Cоздаём репозиторий для лабораторных работ из шаблона
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/17.png}}
+
+}
+
+\caption{Сознание репозитория курса}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Сознание репозитория курса на основе шаблона}
+\phantomsection\label{ux441ux43eux437ux43dux430ux43dux438ux435-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux44f-ux43aux443ux440ux441ux430-ux43dux430-ux43eux441ux43dux43eux432ux435-ux448ux430ux431ux43bux43eux43dux430-2}
+И клонируем его к себе на компьютер
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/18.png}}
+
+}
+
+\caption{Клонирование репозитория}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Настройка каталога курса}
+\phantomsection\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-ux43aux430ux442ux430ux43bux43eux433ux430-ux43aux443ux440ux441ux430}
+Переходим в него с помощью cd и удаляем ненужные файлы (package.json) и
+создаём необходимые каталоги, записав в файл COURSE строку os-intro (это
+наш текущий курс) и прописываем make prepare для того, чтобы нужные нам
+каталоги создались
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\linewidth,height=0.45\textheight,keepaspectratio]{image/image19.png}
+
+}
+
+\caption{Удаление ненужных файлов и использование make}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Настройка каталога курса}
+\phantomsection\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-ux43aux430ux442ux430ux43bux43eux433ux430-ux43aux443ux440ux441ux430-1}
+Теперь добавляем нашу папку для отправки
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image19.png}}
+
+}
+
+\caption{Использование git add}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Настройка каталога курса}
+\phantomsection\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-ux43aux430ux442ux430ux43bux43eux433ux430-ux43aux443ux440ux441ux430-2}
+Делаем коммит, в котором указываем, что мы сделали структуру курса
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=\linewidth,height=0.6\textheight,keepaspectratio]{image/image20.png}
+
+}
+
+\caption{Использование git commit}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Настройка каталога курса}
+\phantomsection\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-ux43aux430ux442ux430ux43bux43eux433ux430-ux43aux443ux440ux441ux430-3}
+И отправляем файлы на сервер GitHub с помощью команды push
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{image/image23.png}}
+
+}
+
+\caption{Использование git push}
+
+\end{figure}%
+\end{frame}
+
+\begin{frame}{Выводы}
+\phantomsection\label{ux432ux44bux432ux43eux434ux44b}
+Устаноли git, провели его первоначальную настройку, были созданы ключи
+для авторизации и подписи, а также создан репозиторий курса из
+предложенного шаблона
+\end{frame}
+
+
+
+
+\end{document}
