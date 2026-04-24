@@ -375,3 +375,4 @@ project-personal/stage03/hugo/
 labs/lab02/report/*.deb
 *.deb
 labs/lab02/report/*.deb
+*.deb
