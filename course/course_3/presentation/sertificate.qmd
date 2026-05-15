@@ -1,0 +1,3 @@
+Сертификат ([рис. @fig-045]).
+
+![image45](image/image45.jpg){#fig-045 width=70%}
